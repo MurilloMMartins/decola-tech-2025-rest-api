@@ -23,5 +23,5 @@ classDiagram
     }
 
     User "1" *-- "0..*" Loan : has
-    Loan "1" o--* "1" Item : includes
+    Loan "0..*" o--* "1" Item : has
 ```
