@@ -2,10 +2,22 @@ package mmartins.murillo.domain.model;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+
+@Entity(name = "tb_loan")
 public class Loan {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @OneToOne
     private Item item;
+
     private LocalDate checkoutDate;
     private LocalDate returnDate;
     private String status;
