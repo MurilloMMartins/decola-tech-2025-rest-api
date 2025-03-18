@@ -3,7 +3,9 @@ package mmartins.murillo.domain.model;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -17,8 +19,11 @@ public class User {
     private Long id;
 
     private String name;
+    
+    @Column(unique = true)
+    private String email;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Loan> loans;
 
     public Long getId() {
@@ -43,6 +48,14 @@ public class User {
 
     public void setLoans(List<Loan> loans) {
         this.loans = loans;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 }

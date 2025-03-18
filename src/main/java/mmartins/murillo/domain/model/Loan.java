@@ -17,6 +17,9 @@ public class Loan {
 
     @ManyToOne
     private Item item;
+    
+    @ManyToOne
+    private User user;
 
     private LocalDate checkoutDate;
     private LocalDate returnDate;

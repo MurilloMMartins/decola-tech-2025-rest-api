@@ -6,6 +6,7 @@ Simple Java RESTful API created for the "Decola Tech 2025" bootcamp.
 classDiagram
     class User {
         +String name
+        +String email
         +Loan[] loans
     }
 
