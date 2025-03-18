@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,18 @@ public class ItemController {
         this.itemService = itemService;
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Item> findById(@PathVariable Long id) {
+        var item = itemService.findById(id);
+        return ResponseEntity.ok(item);
+    }
+
+    @GetMapping("/search/{name}")
+    public ResponseEntity<List<Item>> findByName(@PathVariable String name) {
+        List<Item> items = itemService.findByName(name);
+        return ResponseEntity.ok(items);
+    }
+
     @GetMapping
     public ResponseEntity<List<Item>> findAll() {
         return ResponseEntity.ok(itemService.findAll());
@@ -36,7 +49,7 @@ public class ItemController {
                 .path("/{id}")
                 .buildAndExpand(itemCreated.getId())
                 .toUri();
-        
+
         return ResponseEntity.created(location).body(itemCreated);
     }
 
