@@ -10,8 +10,8 @@ import mmartins.murillo.domain.repository.ItemRepository;
 import mmartins.murillo.service.ItemService;
 
 @Service
-public class ItemServiceImpl implements ItemService{
-    
+public class ItemServiceImpl implements ItemService {
+
     private final ItemRepository itemRepository;
 
     public ItemServiceImpl(ItemRepository itemRepository) {
@@ -27,8 +27,8 @@ public class ItemServiceImpl implements ItemService{
     public List<Item> findByName(String name) {
         return itemRepository.findByName(name);
     }
-    
-    @Override 
+
+    @Override
     public List<Item> findAll() {
         return itemRepository.findAll();
     }
