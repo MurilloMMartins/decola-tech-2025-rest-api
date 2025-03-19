@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity(name = "tb_loan")
@@ -19,6 +20,7 @@ public class Loan {
     private Item item;
     
     @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     private LocalDate checkoutDate;
@@ -27,6 +29,14 @@ public class Loan {
 
     public Long getId() {
         return id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public void setId(Long id) {

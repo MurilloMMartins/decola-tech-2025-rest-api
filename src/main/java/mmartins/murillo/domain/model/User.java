@@ -22,7 +22,7 @@ public class User {
     @Column(unique = true)
     private String email;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<Loan> loans;
 
     public Long getId() {
