@@ -22,9 +22,6 @@ public class User {
     @Column(unique = true)
     private String email;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-    private List<Loan> loans;
-
     public Long getId() {
         return id;
     }
@@ -39,14 +36,6 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public List<Loan> getLoans() {
-        return loans;
-    }
-
-    public void setLoans(List<Loan> loans) {
-        this.loans = loans;
     }
 
     public String getEmail() {
