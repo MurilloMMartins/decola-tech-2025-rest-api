@@ -1,5 +1,5 @@
 # Decola Tech 2025 Rest API
-Simple Java RESTful API created for the "Decola Tech 2025" bootcamp.
+Simple Java RESTful API created for the "Decola Tech 2025" bootcamp
 
 ## Class Diagram
 ```mermaid
